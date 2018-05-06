@@ -72,7 +72,7 @@ public class TheManager : MonoBehaviour
 
     public void GoToMenu()
     {
-        Debug.Log("go to menu not implemented. ");
+        SceneManager.LoadScene(1);
     }
 
     public int ReturnPoints(string player)

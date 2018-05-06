@@ -462,7 +462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49e007d2f07aa2749920b27c41cb7a56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 4
+  time: 5
   menuCanvas: {fileID: 2082033097}
   winner: {fileID: 634210454}
   gameOver: 0

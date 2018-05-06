@@ -2,64 +2,59 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AddPoints : MonoBehaviour {
+public class AddPoints : MonoBehaviour
+{
 
-    private int points;
+    private int playerOnePoints;
+    private int playerTwoPoints;
     public GameObject partner;
-    public GameObject gameManager;
+    public string PlayerNumber;
 
-    private TheManager manager;
+    public int getPlayerOnePoints()
+    {
+        return playerOnePoints;
+    }
+
+    public int getPlayerTwoPoints()
+    {
+        return playerTwoPoints;
+    }
 
     // Use this for initialization
-    void Start () {
-        manager = gameManager.GetComponent<TheManager>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        if (manager.gameOver == true)
-        {
-            gameObject.SetActive(false);
-            partner.SetActive(false);
-        }
+    void Start()
+    {
+        playerOnePoints = 0;
+        playerTwoPoints = 0;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-    
-        Debug.Log("+1 point");
-        points += 1;
-        BoxCollider toChange = GetComponent<BoxCollider>();
-        toChange.enabled = false;
-        toChange = partner.GetComponent<BoxCollider>();
-        toChange.enabled = true;
-        //partner.SetActive(true);
+        if (PlayerNumber.Equals("1"))
+        {
+            if (other.gameObject.tag.Equals("Arm"))
+            {
+                Debug.Log("+1 point");
+                playerOnePoints += 1;
+                gameObject.SetActive(false);
+                partner.SetActive(true);
+            }
+        }
 
-        //Change Material on cube
-        //Fetch the Renderer from the GameObject
-        Renderer rend = GetComponent<Renderer>();
-
-        //Set the main Color of the Material to red
-        rend.material.shader = Shader.Find("_Color");
-        rend.material.SetColor("_Color", Color.red);
-
-        //Find the Specular shader and change its Color to green
-        rend.material.shader = Shader.Find("Specular");
-        rend.material.SetColor("_SpecColor", Color.green);
-
-        //Change Material on partner cube.
-        rend = partner.GetComponent<Renderer>();
-
-        //Set the main Color of the Material to red
-        rend.material.shader = Shader.Find("_Color");
-        rend.material.SetColor("_Color", Color.green);
-
-        //Find the Specular shader and change its Color to green
-        rend.material.shader = Shader.Find("Specular");
-        rend.material.SetColor("_SpecColor", Color.red);
-
-        //Send message to game manager to increase player's points.
-        manager = gameManager.GetComponent<TheManager>();
-        manager.ScorePoint(other.tag);
+        if (PlayerNumber.Equals("2"))
+        {
+            if (other.gameObject.tag.Equals("Arm"))
+            {
+                Debug.Log("+1 point");
+                playerTwoPoints += 1;
+                gameObject.SetActive(false);
+                partner.SetActive(true);
+            }
+        }
     }
 }

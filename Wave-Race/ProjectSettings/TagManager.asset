@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Arm
+  - Player1
+  - Player2
+  - 1
+  - 2
   layers:
   - Default
   - TransparentFX

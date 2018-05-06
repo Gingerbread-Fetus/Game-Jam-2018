@@ -6,14 +6,19 @@ public class Movement : MonoBehaviour
 {
     public GameObject arm;
     public string PlayerNumber;
+    private AddPoints playerOne;
+    private AddPoints playerTwo;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        int playerOnePoints = playerOne.getPlayerOnePoints();
+        int playerTwoPoints = playerTwo.getPlayerTwoPoints();
+
         if (PlayerNumber.Equals("1"))
         {
             if (Input.GetKey(KeyCode.LeftArrow))

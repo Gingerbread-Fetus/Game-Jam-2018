@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/menu.unity
     guid: 40eff551c57136248b9fe318d3406df0
+  - enabled: 1
+    path: Assets/Scenes/Hat Selection.unity
+    guid: adec5ed6349501a41bbfe6d356ca9150
   m_configObjects: {}

@@ -24,6 +24,21 @@ public class TheManager : MonoBehaviour
     public bool gameOver;
     public Scene scene;
 
+    //SpriteRenderers that hold hats
+    public SpriteRenderer p1;
+    public SpriteRenderer p2;
+
+    //To load information from hat-selection
+    GameObject persistentObject;
+
+    private void Awake()
+    {
+        persistentObject = GameObject.Find("HatRack");
+
+        SetHats();
+    }
+
+   
     // Use this for initialization
     void Start()
     {
@@ -42,6 +57,13 @@ public class TheManager : MonoBehaviour
             GameOver();
         }
     }
+
+    private void SetHats()
+    {
+        p1.sprite = persistentObject.GetComponent<HatRack>().P1Selected;
+        p2.sprite = persistentObject.GetComponent<HatRack>().P2Selected;
+    }
+
 
     private void GameOver()
     {

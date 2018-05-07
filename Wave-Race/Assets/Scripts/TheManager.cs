@@ -12,6 +12,9 @@ public class TheManager : MonoBehaviour
     //Player points
     private int playerOnePoints;
     private int playerTwoPoints;
+
+    //Audio Source
+    public AudioSource song;
     
     //Menu Canvas
     public Canvas menuCanvas;
@@ -56,6 +59,7 @@ public class TheManager : MonoBehaviour
         {
             GameOver();
         }
+        //Debug.Log(song.isPlaying);
     }
 
     private void SetHats()
@@ -94,7 +98,7 @@ public class TheManager : MonoBehaviour
 
     public void GoToMenu()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
     public int ReturnPoints(string player)

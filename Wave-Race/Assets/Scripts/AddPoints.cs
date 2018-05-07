@@ -9,6 +9,9 @@ public class AddPoints : MonoBehaviour
     public GameObject partner;
     public GameObject gameManager;
 
+    public Material red;
+    public Material green;
+
     private TheManager manager;
 
     // Use this for initialization
@@ -43,23 +46,13 @@ public class AddPoints : MonoBehaviour
         Renderer rend = GetComponent<Renderer>();
 
         //Set the main Color of the Material to red
-        rend.material.shader = Shader.Find("_Color");
-        rend.material.SetColor("_Color", Color.red);
-
-        //Find the Specular shader and change its Color to green
-        rend.material.shader = Shader.Find("Specular");
-        rend.material.SetColor("_SpecColor", Color.green);
+        rend.material = red;
 
         //Change Material on partner cube.
         rend = partner.GetComponent<Renderer>();
 
-        //Set the main Color of the Material to red
-        rend.material.shader = Shader.Find("_Color");
-        rend.material.SetColor("_Color", Color.green);
-
-        //Find the Specular shader and change its Color to green
-        rend.material.shader = Shader.Find("Specular");
-        rend.material.SetColor("_SpecColor", Color.red);
+        //Set the main Color of the Material to green
+        rend.material = green;
 
         //Send message to game manager to increase player's points.
         manager = gameManager.GetComponent<TheManager>();
